@@ -1,0 +1,15 @@
+[Unit]
+Description=Pterodactyl Auto Start
+After=wings.service
+
+[Service]
+Type=oneshot
+Environment=baseURL="https://panel.minecraft.com/api"
+Environment=apiToken="token"
+ExecStart=/opt/pterodactylAutoStart/autoStart.bash
+RemainAfterExit=true
+User=nobody
+Group=nogroup
+
+[Install]
+WantedBy=multi-user.target

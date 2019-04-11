@@ -6,6 +6,11 @@ if [[ -z ${baseURL} || -z ${apiToken} ]]; then
     exit 1
 fi
 
+if ! [ -x "$(command -v jq)" ]; then
+  echo 'jq is not installed.' >&2
+  exit 1
+fi
+
 dataOfServers=$(curl -s "${baseURL}""/client" \
     -H "Authorization: Bearer $apiToken" \
     -H "Content-Type: application/json" \
