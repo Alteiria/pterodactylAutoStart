@@ -4,6 +4,7 @@ After=wings.service
 
 [Service]
 Type=oneshot
+ExecStartPre=/bin/sleep 60
 Environment=baseURL="https://panel.minecraft.com/api"
 Environment=apiToken="token"
 ExecStart=/opt/pterodactylAutoStart/autoStart.bash
