@@ -1,0 +1,3 @@
+{
+    "shellcheck.exclude": ["SC2154"],
+}
