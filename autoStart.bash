@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [[ -z ${baseURL} || -z ${apiToken} ]]; then
-    echo "Please set baseURL+/api to your Pterodactyl panel URL. Example: https://panel.minecraft.com/api."
-    echo "Please set the API Token according to Account API page."
+    echo "Please set baseURL and apiToken environment variables."
+    echo "Help available in the README: https://github.com/Alteiria/pterodactylAutoStart/blob/master/README.md"
     exit 1
 fi
 
