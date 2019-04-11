@@ -2,7 +2,7 @@
 
 if [[ -z ${baseURL} || -z ${apiToken} ]]; then
     echo "Please set baseURL+/api to your Pterodactyl panel URL. Example: https://panel.minecraft.com/api."
-    echo "Please set the API Token according to Application API section in the administration."
+    echo "Please set the API Token according to Account API page."
     exit 1
 fi
 
