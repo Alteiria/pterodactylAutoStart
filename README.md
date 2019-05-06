@@ -28,9 +28,11 @@ sudo chmod +x /usr/bin/jq
 sudo mv /opt/pterodactylAutoStart/pterodactylAutoStart.service /etc/systemd/system/pterodactylAutoStart.service
 ````
 5. Edit the service file and modify the two environment variables `baseURL` and `apiToken`:
+
 ````
 sudo nano /etc/systemd/system/pterodactylAutoStart.service
 ````
+
 **Note**: Make sure to follow the [Requirements](https://github.com/Alteiria/pterodactylAutoStart#requirements) section for the two environment variables!
 
 6. Enable the service file to make the script starting at boot:
@@ -38,6 +40,9 @@ sudo nano /etc/systemd/system/pterodactylAutoStart.service
 sudo systemctl enable pterodactylAutoStart
 ````
 7. On your Pterodactyl panel, edit the description of every server that you wish to auto start by simply adding `alwaysStart` in their description. **Watchout for the capitalized in the second `s`**!
+
+    Screenshot of one of my server that auto start:
+![](https://i.imgur.com/7Cg4J9k.png)
 
 ## How to test if the script works as intended.
 
