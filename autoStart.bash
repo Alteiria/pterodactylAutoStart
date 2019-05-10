@@ -19,13 +19,13 @@ dataOfServers=$(curl -s "${baseURL}""/client" \
     -D "${temp_headers}" \
 -H "Accept: Application/vnd.pterodactyl.v1+json" | jq '.data')
 
-read STATUS < <(
-      echo $temp_headers |
+read -r STATUS < <(
+      cat "$temp_headers" |
       awk '/^HTTP/ { STATUS = $2 }
            END { printf("%s\n",STATUS) }'
     )
 
-rm -f $temp_headers
+rm -f "$temp_headers"
 
 if [[ $STATUS = 404 ]]; then
 	echo "The baseURL is wrong and/or cannot be accessed."
