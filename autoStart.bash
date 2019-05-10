@@ -11,10 +11,29 @@ if ! [ -x "$(command -v jq)" ]; then
   exit 1
 fi
 
+temp_headers=$(mktemp)
+
 dataOfServers=$(curl -s "${baseURL}""/client" \
     -H "Authorization: Bearer $apiToken" \
     -H "Content-Type: application/json" \
+    -D "${temp_headers}" \
 -H "Accept: Application/vnd.pterodactyl.v1+json" | jq '.data')
+
+read STATUS < <(
+      echo $temp_headers |
+      awk '/^HTTP/ { STATUS = $2 }
+           END { printf("%s\n",STATUS) }'
+    )
+
+rm -f $temp_headers
+
+if [[ $STATUS = 404 ]]; then
+	echo "The baseURL is wrong and/or cannot be accessed."
+	exit 1
+elif [[ $STATUS = 403 ]]; then
+	echo "Wrong token"
+	exit 1
+fi
 
 numberOfServers=$(echo "${dataOfServers}" | jq length)
 
