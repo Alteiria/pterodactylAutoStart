@@ -20,9 +20,8 @@ dataOfServers=$(curl -s "${baseURL}""/client" \
 -H "Accept: Application/vnd.pterodactyl.v1+json" | jq '.data')
 
 read -r STATUS < <(
-      cat "$temp_headers" |
       awk '/^HTTP/ { STATUS = $2 }
-           END { printf("%s\n",STATUS) }'
+           END { printf("%s\n",STATUS) }' < "$temp_headers"
     )
 
 rm -f "$temp_headers"
