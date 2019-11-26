@@ -1,3 +1,7 @@
+:warning:Pterodactly just introduced the feature "return to the latest powerstate of a server" so this script is basically useless now.:warning:
+
+Please use the new feature in pterodactyl: https://github.com/pterodactyl/panel/issues/136#issuecomment-557996853
+
 # Pterodactyl Auto Start
 [![Build Status](https://travis-ci.com/Alteiria/pterodactylAutoStart.svg?branch=master)](https://travis-ci.com/Alteiria/pterodactylAutoStart)
 
